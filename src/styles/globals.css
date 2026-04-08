@@ -81,6 +81,8 @@
   --video-shell-bg: rgba(255, 255, 255, 0.08);
   --video-modal-title: #b9cbc9;
   --video-modal-control: #446668;
+  --cursor-pixel: url('/cursor-minimal-dark.svg') 0 0, auto;
+  --cursor-pointer: url('/cursor-minimal-dark.svg') 0 0, pointer;
   --surface-shadow:
     0 10px 22px -14px rgba(82, 81, 98, 0.62),
     0 12px 24px -12px rgba(0, 0, 0, 0.46);
