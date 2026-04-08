@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DottedPixel';
+  src: url('../../dotted.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f8f9fa;
+  --panel: rgba(255, 255, 255, 0.96);
+  --panel-strong: rgba(255, 255, 255, 0.98);
+  --text: #1a1a1a;
+  --muted: #5c5c6a;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow: rgba(0, 0, 0, 0.06);
+  --accent: #bee6dd;
+  --accent-2: #c5b9fb;
+  --accent-3: #f6d68f;
+  --accent-4: #f0f0f2;
+  --cursor-pixel: url('/cursor-minimal.svg') 0 0, auto;
+  --cursor-pointer: url('/cursor-minimal.svg') 0 0, pointer;
+  --btn-bg: #ffffff;
+  --btn-text: var(--text);
+  --grid-color: rgba(0, 0, 0, 0.02);
+  --macaron-green: #BEEFE6;
+  --macaron-purple: #fd9978;
+  --macaron-yellow: #fec837;
+  --macaron-grey: #749593;
+  --tab-icon-bg: rgba(255, 255, 255, 0.7);
+  --tab-icon-bg-active: rgba(255, 255, 255, 0.2);
+  --tab-icon-filter: none;
+  --hello-text: #000000;
+  --dot-color: #000000;
+  --video-tooltip-text: #000000;
+  --video-frame-border: rgba(0, 0, 0, 0.06);
+  --video-player-shell: var(--panel-strong);
+  --video-shell-bg: rgba(255, 255, 255, 0.72);
+  --video-modal-title: #000000;
+  --video-modal-control: #000000;
+  --surface-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --surface-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --video-panel-border: rgba(0, 0, 0, 0.05);
+  --video-panel-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --video-panel-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --toast-bg: #ffffff;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #394f57;
+  --panel: rgba(35, 38, 49, 0.96);
+  --panel-strong: rgba(28, 31, 42, 0.98);
+  --text: #ffffff;
+  --muted: #b9cbc9;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(0, 0, 0, 0.28);
+  --accent: #bee6dd;
+  --accent-2: #c5b9fb;
+  --accent-3: #f6d68f;
+  --accent-4: #f0f0f2;
+  --btn-bg: #446668;
+  --btn-text: #ffffff;
+  --grid-color: rgba(185, 203, 201, 0.15); /* #b9cbc9 based grid color for dark mode */
+  --macaron-green: #749593;
+  --macaron-purple: #fd9978;
+  --macaron-yellow: #fec837;
+  --macaron-grey: #749593;
+  --tab-icon-bg: #749593;
+  --tab-icon-bg-active: #749593;
+  --tab-icon-filter: brightness(0) invert(1);
+  --hello-text: #b9cbc9;
+  --dot-color: #394f57;
+  --video-tooltip-text: var(--hello-text);
+  --video-frame-border: #b9cbc9;
+  --video-player-shell: #ffffff;
+  --video-shell-bg: rgba(255, 255, 255, 0.08);
+  --video-modal-title: #b9cbc9;
+  --video-modal-control: #446668;
+  --surface-shadow:
+    0 10px 22px -14px rgba(82, 81, 98, 0.62),
+    0 12px 24px -12px rgba(0, 0, 0, 0.46);
+  --surface-hover-shadow:
+    0 16px 30px -16px rgba(82, 81, 98, 0.78),
+    0 18px 30px -14px rgba(0, 0, 0, 0.54);
+  --video-panel-border: transparent;
+  --video-panel-shadow:
+    0 10px 22px -14px rgba(82, 81, 98, 0.68),
+    0 12px 24px -12px rgba(0, 0, 0, 0.5);
+  --video-panel-hover-shadow:
+    0 16px 28px -14px rgba(82, 81, 98, 0.82),
+    0 20px 34px -16px rgba(0, 0, 0, 0.56);
+  --toast-bg: #446668;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(45deg, var(--grid-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--grid-color) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--grid-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--grid-color) 75%);
+  background-size: 4px 4px;
+  color: var(--text);
+  font-family: 'DottedPixel', ui-monospace, monospace;
+  cursor: var(--cursor-pixel);
+  overflow-x: hidden;
+  -webkit-font-smoothing: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+[role='button'] {
+  cursor: var(--cursor-pointer);
+}
+
+::selection {
+  background: rgba(159, 178, 255, 0.4);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.pixel-border {
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 14px 40px var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.pixel-frame {
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.pixel-title {
+  font-family: 'DottedPixel', ui-monospace, monospace;
+  letter-spacing: -0.02em;
+}
+
+.pixel-soft {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.pixel-hover {
+  transition:
+    transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pixel-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.pixel-chip {
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72) inset;
+}
+
+.pixel-window {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pixel-window:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.pixel-window-chrome {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.video-panel-shell {
+  border: 1px solid var(--video-panel-border);
+  box-shadow: var(--video-panel-shadow);
+}
+
+.video-panel-shell:hover {
+  box-shadow: var(--video-panel-hover-shadow);
+}
+
+.surface-shadow {
+  box-shadow: var(--surface-shadow);
+}
+
+.surface-shadow:hover {
+  box-shadow: var(--surface-hover-shadow);
+}
+
+.pixel-burst-particle {
+  animation-name: pixel-burst;
+  animation-duration: 650ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pixel-burst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.35);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  38% {
+    opacity: 1;
+    transform: translate(var(--burst-apex-x), var(--burst-apex-y)) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--burst-x), var(--burst-y)) scale(0.15);
+  }
+}
+
+.pixel-dot {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  position: relative;
+}
+
+.pixel-dot::before,
+.pixel-dot::after {
+  content: '';
+  position: absolute;
+  background-color: var(--dot-color);
+}
+
+.pixel-dot::before {
+  top: 0;
+  left: 2px;
+  width: 4px;
+  height: 8px;
+}
+
+.pixel-dot::after {
+  top: 2px;
+  left: 0;
+  width: 8px;
+  height: 4px;
+}
+
+.pixel-dot-inner {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  z-index: 1;
+}
+
+.pixel-dash-grid {
+  background-image: linear-gradient(to bottom, rgba(113, 122, 160, 0.28) 33%, transparent 0%);
+  background-position: center;
+  background-size: 1px 24px;
+  background-repeat: repeat-y;
+}
+
+.pixel-overlay {
+  backdrop-filter: blur(10px);
+  background: rgba(14, 16, 24, 0.42);
+}
+
+#modal {
+  transition: opacity 0.3s;
+}
+
+#modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
