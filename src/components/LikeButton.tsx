@@ -6,6 +6,7 @@ type LikeButtonProps = {
 };
 
 export function LikeButton({ count, onIncrement }: LikeButtonProps) {
+  const baseUrl = import.meta.env.BASE_URL;
   const [liked, setLiked] = useState(false);
   const [burstKey, setBurstKey] = useState(0);
   const [burstVisible, setBurstVisible] = useState(false);
@@ -78,7 +79,7 @@ export function LikeButton({ count, onIncrement }: LikeButtonProps) {
         </span>
 
         <img
-          src={liked ? '/heart-solid-red.svg' : '/heart-outline-red.svg'}
+          src={liked ? `${baseUrl}heart-solid-red.svg` : `${baseUrl}heart-outline-red.svg`}
           width={24}
           height={24}
           alt="Heart"

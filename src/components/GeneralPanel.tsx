@@ -18,6 +18,7 @@ const tabActiveColorMap = {
 export function GeneralPanel({ className = '' }: GeneralPanelProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <aside
@@ -51,9 +52,9 @@ export function GeneralPanel({ className = '' }: GeneralPanelProps) {
             >
               <span className={`flex h-8 w-8 items-center justify-center rounded-full ${active ? 'bg-[var(--tab-icon-bg-active)]' : 'bg-[var(--tab-icon-bg)] group-hover:bg-[var(--tab-icon-bg-active)]'}`}>
                 {tab.icon === 'about' ? (
-                  <img src="/avatar-square.svg" width={24} height={24} alt="Avatar Square" className="h-5 w-5 [image-rendering:pixelated] [filter:var(--tab-icon-filter)] transition-all duration-200" />
+                  <img src={`${baseUrl}avatar-square.svg`} width={24} height={24} alt="Avatar Square" className="h-5 w-5 [image-rendering:pixelated] [filter:var(--tab-icon-filter)] transition-all duration-200" />
                 ) : (
-                  <img src="/briefcase.svg" width={24} height={24} alt="Briefcase" className="h-5 w-5 [image-rendering:pixelated] [filter:var(--tab-icon-filter)] transition-all duration-200" />
+                  <img src={`${baseUrl}briefcase.svg`} width={24} height={24} alt="Briefcase" className="h-5 w-5 [image-rendering:pixelated] [filter:var(--tab-icon-filter)] transition-all duration-200" />
                 )}
               </span>
               <span className="font-medium">{tab.label}</span>
