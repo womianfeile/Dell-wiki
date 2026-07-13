@@ -18,19 +18,19 @@
   --muted: #5c5c6a;
   --border: rgba(0, 0, 0, 0.06);
   --shadow: rgba(0, 0, 0, 0.06);
-  --accent: #bee6dd;
-  --accent-2: #c5b9fb;
-  --accent-3: #f6d68f;
-  --accent-4: #f0f0f2;
+  --palette-mint: #BEEFE6;
+  --palette-lavender: #C5B9FB;
+  --palette-cream-yellow: #F6D68F;
+  --palette-soft-grey: #F0F0F2;
+  --palette-coral: #FD9978;
+  --palette-blue: #8FB6D6;
+  --highlight-yellow: #FEC837;
+  --detail-muted-mint: #BEE6DD;
   --cursor-pixel: url('/cursor-minimal.svg') 0 0, auto;
   --cursor-pointer: url('/cursor-minimal.svg') 0 0, pointer;
   --btn-bg: #ffffff;
   --btn-text: var(--text);
   --grid-color: rgba(0, 0, 0, 0.02);
-  --macaron-green: #BEEFE6;
-  --macaron-purple: #fd9978;
-  --macaron-yellow: #fec837;
-  --macaron-grey: #749593;
   --tab-icon-bg: rgba(255, 255, 255, 0.7);
   --tab-icon-bg-active: rgba(255, 255, 255, 0.2);
   --tab-icon-filter: none;
@@ -59,17 +59,9 @@
   --muted: #b9cbc9;
   --border: rgba(255, 255, 255, 0.12);
   --shadow: rgba(0, 0, 0, 0.28);
-  --accent: #bee6dd;
-  --accent-2: #c5b9fb;
-  --accent-3: #f6d68f;
-  --accent-4: #f0f0f2;
   --btn-bg: #446668;
   --btn-text: #ffffff;
   --grid-color: rgba(185, 203, 201, 0.15); /* #b9cbc9 based grid color for dark mode */
-  --macaron-green: #749593;
-  --macaron-purple: #fd9978;
-  --macaron-yellow: #fec837;
-  --macaron-grey: #749593;
   --tab-icon-bg: #749593;
   --tab-icon-bg-active: #749593;
   --tab-icon-filter: brightness(0) invert(1);
@@ -241,6 +233,53 @@ a,
   100% {
     opacity: 0;
     transform: translate(var(--burst-x), var(--burst-y)) scale(0.15);
+  }
+}
+
+.about-blink {
+  animation: about-terminal-blink 1s step-end infinite;
+}
+
+.about-pop-in {
+  opacity: 0;
+  animation: about-pop-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.about-pulse {
+  animation: about-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes about-terminal-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes about-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes about-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
   }
 }
 

@@ -250,9 +250,9 @@ export function HomePage() {
         title={openedVideo?.title ?? ''}
         embedUrl={openedVideo?.embedUrl ?? ''}
         headerClassName={
-          openedVideo?.chrome === 'purple'
+          openedVideo?.chrome === 'coral'
             ? 'bg-[rgba(253,153,120,0.66)]'
-            : openedVideo?.chrome === 'yellow'
+            : openedVideo?.chrome === 'cream'
               ? 'bg-[rgba(246,214,143,0.82)]'
               : 'bg-[rgba(116,149,147,0.66)]'
         }

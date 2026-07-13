@@ -4,6 +4,8 @@ type HelloPanelProps = {
 };
 
 export function HelloPanel({ onOpenAbout, className = '' }: HelloPanelProps) {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <section
       className={`surface-shadow relative w-full overflow-hidden rounded-[16px] border border-black/5 bg-transparent p-10 backdrop-blur-[14px] transition-all duration-300 hover:-translate-y-1.5 md:w-[500px] ${className}`}
@@ -13,10 +15,13 @@ export function HelloPanel({ onOpenAbout, className = '' }: HelloPanelProps) {
         onClick={onOpenAbout}
         className="group flex w-full flex-col items-center justify-center gap-5 text-center outline-none"
       >
-        <span className="flex h-24 w-24 items-center justify-center rounded-full bg-macaron-yellow shadow-[0_4px_10px_rgba(0,0,0,0.1)] transition-transform duration-200 group-hover:scale-[1.04]">
-          <span className="flex h-20 w-20 items-center justify-center rounded-full bg-macaron-yellow text-[11px] font-bold text-black/70">
-            Avatar
-          </span>
+        <span className="surface-shadow flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-[var(--panel-strong)] transition-transform duration-200 group-hover:scale-[1.04]">
+          <img
+            src={`${baseUrl}image/avatar/dinosaur.png`}
+            alt="Dell avatar"
+            className="h-full w-full object-cover object-center scale-[1.12]"
+            loading="lazy"
+          />
         </span>
         <span className="text-4xl font-bold leading-tight text-[var(--hello-text)]">
           Hello, I&apos;m Dell,

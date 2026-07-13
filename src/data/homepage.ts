@@ -11,8 +11,9 @@ export type VideoPanelData = {
   title: string;
   subtitle: string;
   coverLabel: string;
+  coverImagePath?: string;
   embedUrl: string;
-  chrome: 'grey' | 'purple' | 'yellow';
+  chrome: 'sage' | 'coral' | 'cream';
   position: {
     top: string;
     left?: string;
@@ -42,11 +43,12 @@ export const homeTabs: HomeTab[] = [
 export const videoPanels: VideoPanelData[] = [
   {
     id: 'video-1',
-    title: 'Web3 艺术生成管线探索',
-    subtitle: 'A short exploration of generative art...',
+    title: '《黑暗之后》',
+    subtitle: '创作者：wiki  Rollo  胡个.  阿兰塔夫曼',
     coverLabel: '[ Click to Play Video ]',
-    embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    chrome: 'purple',
+    coverImagePath: 'image/covers/video-1.jpg',
+    embedUrl: 'https://player.bilibili.com/player.html?bvid=BV14TDxB3E5V&page=1&autoplay=0',
+    chrome: 'coral',
     position: {
       top: '60%',
       left: '8%',
@@ -58,11 +60,12 @@ export const videoPanels: VideoPanelData[] = [
   },
   {
     id: 'video-2',
-    title: '数字媒体艺术期末展',
-    subtitle: 'My final project showcase...',
+    title: '《它不只是女生的事》',
+    subtitle: '创作者：wiki  Rollo  胡个.  阿兰塔夫曼',
     coverLabel: '[ Click to Play Video ]',
-    embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    chrome: 'yellow',
+    coverImagePath: 'image/covers/video-2.jpg',
+    embedUrl: 'https://player.bilibili.com/player.html?bvid=BV1DZDsB7Emp&page=1&autoplay=0',
+    chrome: 'cream',
     position: {
       top: '15%',
       right: '10%',
@@ -74,11 +77,12 @@ export const videoPanels: VideoPanelData[] = [
   },
   {
     id: 'video-3',
-    title: '微型创新计划: 音乐厅',
-    subtitle: 'A compact study in stage lighting...',
+    title: 'AIGC 广告《冰雪柔情》',
+    subtitle: '创作者：阿兰塔夫曼  今安  wiki  Rollo',
     coverLabel: '[ Click to Play Video ]',
-    embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    chrome: 'grey',
+    coverImagePath: 'image/covers/video-3.jpg',
+    embedUrl: 'https://open.douyin.com/player/video?vid=7574334759065635173&autoplay=0',
+    chrome: 'sage',
     position: {
       top: '55%',
       right: '15%',

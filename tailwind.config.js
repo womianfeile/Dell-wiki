@@ -1,4 +1,5 @@
-export default {
+/** @type {import('tailwindcss').Config} */
+const config = {
     darkMode: ['class'],
     content: ['./index.html', './src/**/*.{ts,tsx}'],
     theme: {
@@ -12,18 +13,17 @@ export default {
                 hover: '0 20px 55px rgba(79, 94, 143, 0.22)',
             },
             colors: {
-                dusk: '#1f2432',
-                paper: '#fbfbf7',
-                mint: '#b6f0e6',
-                lilac: '#d7c2ff',
-                butter: '#ffe39c',
-                blush: '#ffc9cf',
-                'macaron-green': 'var(--macaron-green, #BEEFE6)',
-                'macaron-purple': 'var(--macaron-purple, #C5B9FB)',
-                'macaron-yellow': 'var(--macaron-yellow, #F6D68F)',
-                'macaron-grey': 'var(--macaron-grey, #F0F0F2)',
+                'palette-mint': 'var(--palette-mint, #BEEFE6)',
+                'palette-lavender': 'var(--palette-lavender, #C5B9FB)',
+                'palette-cream-yellow': 'var(--palette-cream-yellow, #F6D68F)',
+                'palette-soft-grey': 'var(--palette-soft-grey, #F0F0F2)',
+                'palette-coral': 'var(--palette-coral, #FD9978)',
+                'palette-blue': 'var(--palette-blue, #8FB6D6)',
+                'highlight-yellow': 'var(--highlight-yellow, #FEC837)',
             },
         },
     },
     plugins: [],
 };
+
+export default config;

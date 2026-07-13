@@ -6,7 +6,7 @@ type VideoModalProps = {
   headerClassName?: string;
 };
 
-export function VideoModal({ open, title, embedUrl, onClose, headerClassName = 'bg-macaron-green' }: VideoModalProps) {
+export function VideoModal({ open, title, embedUrl, onClose, headerClassName = 'bg-palette-mint' }: VideoModalProps) {
   if (!open) return null;
 
   return (

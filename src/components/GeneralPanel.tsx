@@ -11,8 +11,8 @@ const tabColorMap = {
 };
 
 const tabActiveColorMap = {
-  about: 'bg-macaron-purple text-white',
-  portfolio: 'bg-macaron-yellow text-white',
+  about: 'bg-palette-coral text-white',
+  portfolio: 'bg-highlight-yellow text-white',
 };
 
 export function GeneralPanel({ className = '' }: GeneralPanelProps) {
@@ -25,7 +25,7 @@ export function GeneralPanel({ className = '' }: GeneralPanelProps) {
       className={`surface-shadow w-full rounded-[16px] border border-black/5 bg-transparent p-6 backdrop-blur-[14px] transition-all duration-300 hover:-translate-y-1.5 md:w-64 ${className}`}
     >
       <div className="mb-5 flex items-center gap-3">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent)] shadow-[0_2px_5px_rgba(0,0,0,0.08)]">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--detail-muted-mint)] shadow-[0_2px_5px_rgba(0,0,0,0.08)]">
           <span className="text-[10px] font-bold text-black/75">D</span>
         </span>
         <div>

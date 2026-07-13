@@ -10,11 +10,12 @@ type VideoPanelProps = {
 
 export function VideoPanel({ panel, onOpen, className = '' }: VideoPanelProps) {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
   const dragControls = useDragControls();
   const chromeColor =
-    panel.chrome === 'purple'
+    panel.chrome === 'coral'
       ? 'rgba(253,153,120,0.66)'
-      : panel.chrome === 'yellow'
+      : panel.chrome === 'cream'
         ? 'rgba(246,214,143,0.82)'
         : 'rgba(116,149,147,0.66)';
 
@@ -50,7 +51,7 @@ export function VideoPanel({ panel, onOpen, className = '' }: VideoPanelProps) {
           {/* 文本内容层: 高度设为 68px，确保文字在主体矩形中绝对居中，不受底部三角影响 */}
           <div className="relative z-10 flex h-[68px] flex-col items-center justify-center px-4">
             <span className="w-full truncate text-center text-lg font-bold text-[var(--video-tooltip-text)]">作品: {panel.title}</span>
-            <span className="text-sm text-[var(--muted)]">创作者: Dell</span>
+            <span className="w-full truncate text-center text-sm text-[var(--muted)]">{panel.subtitle}</span>
           </div>
         </div>
 
@@ -71,10 +72,40 @@ export function VideoPanel({ panel, onOpen, className = '' }: VideoPanelProps) {
           <button
             type="button"
             onClick={onOpen}
-            className="block w-full overflow-hidden bg-gray-100 text-left shadow-inner transition-colors duration-300 hover:bg-gray-200"
+            className="group/player block w-full overflow-hidden rounded-[10px] bg-black text-left shadow-inner"
+            aria-label={`播放作品 ${panel.title}`}
           >
-            <div className="flex aspect-video w-full items-center justify-center text-gray-400">
-                {panel.coverLabel}
+            <div className="relative aspect-video w-full overflow-hidden">
+              {panel.coverImagePath ? (
+                <img
+                  src={`${baseUrl}${panel.coverImagePath}`}
+                  alt={`${panel.title} cover`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(140deg,#2c3542,#4a5e65)] text-xs text-white/80">
+                  请在 homepage.ts 中设置 coverImagePath
+                </div>
+              )}
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/35 transition-opacity duration-300 group-hover/player:opacity-85" />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span
+                  className="relative block h-14 w-14 rounded-full bg-transparent backdrop-blur-[10px] shadow-[0_6px_14px_rgba(0,0,0,0.16)] transition-transform duration-300 group-hover/player:scale-105"
+                  aria-hidden="true"
+                >
+                  <svg className="absolute inset-0 h-full w-full" viewBox="0 0 56 56" fill="none">
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0ZM22 17L40 28L22 39V17Z"
+                      fill="rgba(255,255,255,0.14)"
+                    />
+                  </svg>
+                </span>
+              </div>
             </div>
           </button>
         </div>
