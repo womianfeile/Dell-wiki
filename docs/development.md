@@ -143,7 +143,7 @@ npm run build
 
 ## 7. 仓库卫生边界
 
-`.gitignore` 忽略 `node_modules/`、`dist/`、`dist-ssr/` 和所有 `*.tsbuildinfo`；`package-lock.json` 必须继续纳入 Git。2026-07-14 已在本地索引中取消跟踪历史依赖和产物，本地目录没有被物理删除；该清理仍需单独提交后才会成为仓库的已提交状态。
+`.gitignore` 忽略 `node_modules/`、`dist/`、`dist-ssr/` 和所有 `*.tsbuildinfo`；`package-lock.json` 必须继续纳入 Git。2026-07-14 已通过提交 `a100d7c` 取消跟踪历史依赖和产物，本地目录没有被物理删除。
 
 后续仓库卫生操作遵循以下边界：
 
