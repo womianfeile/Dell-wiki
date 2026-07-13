@@ -5,7 +5,6 @@
 
 # Dependencies
 node_modules/
-package-lock.json
 yarn.lock
 
 # Build output
@@ -23,8 +22,6 @@ dist-ssr/
 
 # TypeScript
 *.tsbuildinfo
-tsconfig.tsbuildinfo
-tsconfig.node.tsbuildinfo
 
 # npm cache
 .npm/
