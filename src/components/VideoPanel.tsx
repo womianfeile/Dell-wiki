@@ -62,9 +62,9 @@ export function VideoPanel({ panel, onOpen, className = '' }: VideoPanelProps) {
           onPointerDown={(event) => dragControls.start(event.nativeEvent)}
         >
           <div className="flex h-[24px] cursor-grab items-center justify-center gap-[6px] active:cursor-grabbing touch-none">
-            <div className="pixel-dot"><div className="pixel-dot-inner" style={{ backgroundColor: chromeColor }} /></div>
-            <div className="pixel-dot"><div className="pixel-dot-inner" style={{ backgroundColor: chromeColor }} /></div>
-            <div className="pixel-dot"><div className="pixel-dot-inner" style={{ backgroundColor: chromeColor }} /></div>
+            <div className="pixel-dot" />
+            <div className="pixel-dot" />
+            <div className="pixel-dot" />
           </div>
         </div>
 

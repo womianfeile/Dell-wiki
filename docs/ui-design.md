@@ -1,6 +1,6 @@
 # Dell-wiki UI 设计规范
 
-本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-07-14 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
+本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-07-30 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
 
 架构级边界见 [前端架构](architecture.md)，开发和部署方式见 [开发与部署](development.md)。
 
@@ -313,6 +313,7 @@ About 默认单列；1024px 起 BIO/STATS 使用 2/3 列比例，MISSION/TROPHY 
 - 全局光标：`public/cursor-minimal.svg` 与 `public/cursor-minimal-dark.svg`。
 - 导航图标：`public/avatar-square.svg`、`public/briefcase.svg`。
 - Like 图标：红色 outline/solid 两态 SVG。
+- 窗口顶栏圆点使用镂空像素环，中心直接透出顶栏底色，避免半透明主色重复叠加后产生色差。
 - 代码内图标：`src/components/PixelIcons.tsx` 的 crisp SVG。
 - 头像：`public/image/avatar/dinosaur.png`。
 - 作品封面：`public/image/covers/`。

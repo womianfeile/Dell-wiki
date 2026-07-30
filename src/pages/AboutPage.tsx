@@ -118,13 +118,11 @@ function Cursor() {
   return <span className="ml-[2px] inline-block h-[14px] w-2 align-middle bg-[var(--text)] about-blink" />;
 }
 
-function PixelWindowDots({ chromeColor }: { chromeColor: string }) {
+function PixelWindowDots() {
   return (
     <div className="flex h-6 cursor-default items-center justify-center gap-[6px]">
       {[0, 1, 2].map((dot) => (
-        <div key={dot} className="pixel-dot">
-          <div className="pixel-dot-inner" style={{ backgroundColor: chromeColor }} />
-        </div>
+        <div key={dot} className="pixel-dot" />
       ))}
     </div>
   );
@@ -140,7 +138,7 @@ function WindowPanel({ id, title, chromeColor, children, className = '' }: Windo
         className="flex h-8 items-center justify-between px-4"
         style={{ backgroundColor: chromeColor }}
       >
-        <PixelWindowDots chromeColor={chromeColor} />
+        <PixelWindowDots />
         <span className="px-2 text-xs tracking-widest text-black/70">{title}</span>
         <div className="w-[42px]" aria-hidden="true" />
       </div>
