@@ -9,7 +9,7 @@ Dell-wiki 是一个使用 React、TypeScript 与 Tailwind CSS 构建的个人作
 | 路由 | 状态 | 用途 |
 |---|---|---|
 | `/` | 已实现 | 首页入口、主题切换、点赞与邮箱操作、三项视频作品 |
-| `/about` | 本地已实现，尚未确认发布 | RPG 角色档案式个人介绍 |
+| `/about` | 已实现 | RPG 角色档案式个人介绍 |
 | `/portfolio` | 占位 | 未来的完整作品集页面 |
 
 未知路由会回到首页。GitHub Pages 子路由刷新由 `public/404.html` 和 `src/main.tsx` 共同处理。
@@ -82,7 +82,7 @@ npm run deploy
 - [架构说明](docs/architecture.md)：路由、模块边界、状态、主题、响应式与部署架构。
 - [UI 设计规范](docs/ui-design.md)：页面目标、线框、主视觉色板、设计 token、组件状态与交互规则。
 - [开发与部署](docs/development.md)：内容修改方法、验证清单、GitHub Pages 发布与故障排查。
-- [项目状态](docs/project-status.md)：当前本地实现、Git 状态、尚未确认发布的内容和后续工作。
+- [项目状态](docs/project-status.md)：当前本地实现、提交、推送、部署状态和后续工作。
 
 ## 协作说明
 

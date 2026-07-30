@@ -40,7 +40,7 @@
 - `dist/`、`*.tsbuildinfo` 与 `node_modules/` 是产物或依赖，不要手工编辑，也不要把它们的现有噪声误判为本轮改动。
 - Vite 与 Tailwind 均以根目录 `.js` 文件为唯一配置来源；`tsconfig.node.json` 以 `checkJs` + `noEmit` 检查这些 JS 配置。不要重新引入同名 `.ts` 或生成的 `.d.ts` 副本。
 - 六个主视觉色使用 `--palette-*` 语义变量并跨主题固定；品牌圆标的 `#BEE6DD` 必须保留为 `--detail-muted-mint`。视频窗口 `chrome` 只使用 `coral`、`cream`、`sage`。不要重新引入 `--accent-*`、`--macaron-*`、`bg-macaron-*` 或错误的 `purple/yellow/grey` chrome 名称。
-- 当前工作树包含用户未提交改动。禁止使用会覆盖它们的 reset、checkout 或批量清理操作。
+- 工作树若包含用户未提交改动，禁止使用会覆盖它们的 reset、checkout 或批量清理操作。
 
 ## 文件与编码
 
