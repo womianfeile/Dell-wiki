@@ -1,6 +1,6 @@
 # Dell-wiki UI 设计规范
 
-本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-07-30 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
+本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-07-31 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
 
 架构级边界见 [前端架构](architecture.md)，开发和部署方式见 [开发与部署](development.md)。
 
@@ -94,7 +94,7 @@
 └──────────────────────┘
 ```
 
-移动端不追求桌面散落构图。视频保持 16:9，窗格占满容器宽度。
+移动端不追求桌面散落构图。视频保持 16:9，窗格占满容器宽度；顶栏拖拽关闭，触摸手势保留给页面滚动。
 
 ### About 桌面端
 
@@ -331,7 +331,7 @@ About 默认单列；1024px 起 BIO/STATS 使用 2/3 列比例，MISSION/TROPHY 
 | HelloPanel | 头像 + 问候 | 整窗上浮，头像放大；Tooltip 仅 hover | 点击进入 About | 图片使用 lazy load，无骨架 | 图片失败无替代 UI | 全宽，内容居中 |
 | LikeButton | outline heart + 本地点赞数 | 上浮、阴影加深 | 点击变实心红心、计数 +1、粒子喷发 | 不适用 | 可无限重复，无禁用/提交失败概念 | 胶囊按钮，随按钮组换行 |
 | EmailButton | 邮件图标 + Email | 上浮、阴影加深 | Clipboard 成功或 fallback 后显示 Toast | 不适用 | fallback 最终失败也没有错误提示 | 与 Like 并排或换行 |
-| VideoPanel | 顶栏 + 封面 + 播放符号 | 整窗上浮，Tooltip 渐显 | 顶栏拖拽；封面打开模态层 | 图片 lazy load；缺封面时显示文字 fallback | 图片加载失败无 UI；无禁用态 | 单列全宽，但拖拽仍开启 |
+| VideoPanel | 顶栏 + 封面 + 播放符号 | 整窗上浮，Tooltip 渐显 | 桌面端顶栏拖拽；封面打开模态层 | 图片 lazy load；缺封面时显示文字 fallback | 图片加载失败无 UI；无禁用态 | 单列全宽，关闭拖拽并允许正常滚动 |
 | VideoModal | 遮罩 + 顶栏 + iframe | 返回按钮 hover | 点击返回关闭 | iframe 无 loading UI | 无错误 UI、Esc、遮罩关闭或焦点圈定 | 四周 16px，保持 16:9 |
 | Toast | 右下角短消息 | 不交互 | 2.2 秒自动消失 | 不适用 | 无错误变体 | 最大宽 280px |
 | About Window | 彩色顶栏 + 内容 | 窗口上浮 | IntersectionObserver 触发一次动画 | 打字/进度是叙事动画，不是数据加载 | 无 reduced-motion 方案 | 单列，顶部锚点隐藏 |
@@ -358,9 +358,11 @@ About 默认单列；1024px 起 BIO/STATS 使用 2/3 列比例，MISSION/TROPHY 
 | 进度条 | 每格 60ms | 属性加载感 |
 | Canvas 方块 | requestAnimationFrame | 维持首页动态氛围 |
 
+2026-07-31 为解决 Chromium 浏览器中 Canvas 背景动画经过毛玻璃窗格时出现的闪烁，General 和 Video 窗格尝试沿用 Hello 的层级结构：绝对定位和 `z-index` 由外层布局容器承担，应用 `backdrop-filter` 的内层保持 `position: relative`、`z-index: auto` 和 `overflow: hidden`；视频 Tooltip 放在毛玻璃裁切层之外、布局容器之内。该调整已经保留在源码中，但仍未消除闪烁，问题暂时搁置。后续继续排查时应把当前实现视为一次未完全奏效的尝试，不能把它记录成已解决方案。
+
 最初设想的“Hello → General → 三个作品顺时针依次弹出”当前没有实现。新增入场动画前必须先加入 reduced-motion 降级，且不能阻塞访客点击主要入口。
 
-拖拽只允许从视频顶栏开始，`dragMomentum=false` 和 `dragElastic=0` 保持桌面窗口的直接操控感。当前拖拽中临时提高 z-index，但没有点击后持久置顶。
+拖拽只在 `md`（768px）及以上启用，并且只允许从视频顶栏开始；移动端关闭拖拽、移除拖拽提示并恢复正常触摸滚动。`dragMomentum=false` 和 `dragElastic=0` 保持桌面窗口的直接操控感。当前拖拽中临时提高 z-index，但没有点击后持久置顶。
 
 ## 10. 关键交互流程
 

@@ -18,7 +18,7 @@ Dell-wiki 是一个使用 React、TypeScript 与 Tailwind CSS 构建的个人作
 
 - 浅色/深色主题与自定义像素光标，主题偏好保存在浏览器 `localStorage`。
 - 首页俄罗斯方块 Canvas 动态背景、玻璃窗口和响应式布局。
-- 三个可从顶栏拖拽的视频作品窗格，以及 Bilibili/抖音 iframe 播放模态层。
+- 三个桌面端可从顶栏拖拽的视频作品窗格；移动端关闭拖拽并保留顺畅滚动，以及 Bilibili/抖音 iframe 播放模态层。
 - 本地点赞计数、像素粒子喷发与邮箱复制提示。
 - About 页面中的打字机、像素进度条、滚动进入动画和分区锚点。
 - 使用 `import.meta.env.BASE_URL` 适配 GitHub Pages 的 `/Dell-wiki/` 子路径。

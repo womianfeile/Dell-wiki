@@ -87,7 +87,8 @@ npm run build
 - `/portfolio`：占位页可返回首页。
 - 浅色与深色主题。
 - 小于 768px 的单列布局和大于等于 768px 的桌面布局。
-- 视频窗格拖拽与封面点击。
+- 大于等于 768px 时视频窗格可从顶栏拖拽，封面点击可打开视频。
+- 小于 768px 时视频窗格不响应拖拽，且触摸滚动不被顶栏拦截。
 - Bilibili、抖音 iframe 是否仍允许嵌入。
 - 子路由直接输入 URL 和浏览器刷新。
 - 控制台无资源 404 或明显运行时异常。
@@ -125,6 +126,12 @@ npm run build
 2. 退出占用相关文件的开发服务器。
 3. 在正常用户权限终端重试。
 4. 再检查 Vite 配置和依赖安装。
+
+### Chromium 毛玻璃背景动画闪烁（暂时搁置）
+
+首页 Canvas 背景动画经过 General 和 Video 毛玻璃窗格时，在 Chromium 浏览器中可能闪烁。2026-07-31 已尝试把绝对定位与 `z-index` 留在外层布局容器，并让应用 `backdrop-filter` 的内层保持 `position: relative`、`z-index: auto` 和 `overflow: hidden`；Video Tooltip 也移到了毛玻璃裁切层之外。
+
+这次层级调整仍未解决闪烁，当前保留实现并暂时搁置排查。后续不要把现有结构当作已经验证成功的 workaround；继续调查时应从 Chromium 的 Canvas 合成层、`backdrop-filter` 重绘和 Framer Motion transform 交互入手，并用实际浏览器动画结果判断，而不是只看静态截图。
 
 ### GitHub Pages 子路由 404
 
