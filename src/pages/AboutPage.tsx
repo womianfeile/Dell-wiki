@@ -38,7 +38,7 @@ const sections = [
 
 const profileLines: ProfileLine[] = [
   { label: '[ PLAYER ]', value: 'Dell', valueClassName: 'font-bold' },
-  { label: '[ FIELD ]', value: '数字媒体艺术', valueClassName: 'font-bold' },
+  { label: '[ FIELD ]', value: '广播电视编导', valueClassName: 'font-bold' },
   { label: '[ LEVEL ]', value: '2027届毕业生 ', subValue: '(GPA 3.6/4.0)', valueClassName: 'font-bold' },
   {
     label: '[ SERVER ]',

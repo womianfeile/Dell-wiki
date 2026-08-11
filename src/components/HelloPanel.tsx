@@ -17,7 +17,7 @@ export function HelloPanel({ onOpenAbout, className = '' }: HelloPanelProps) {
       >
         <span className="surface-shadow flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-black/5 bg-[var(--panel-strong)] transition-transform duration-200 group-hover:scale-[1.04]">
           <img
-            src={`${baseUrl}image/avatar/dinosaur.png`}
+            src={`${baseUrl}image/avatar/dinosaur-music.png`}
             alt="Dell avatar"
             className="h-full w-full object-cover object-center scale-[1.12]"
             loading="lazy"

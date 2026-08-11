@@ -1,6 +1,6 @@
 # Dell-wiki UI 设计规范
 
-本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-07-31 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
+本文是 Dell-wiki 详细视觉与交互方案的唯一规范来源。内容以 2026-08-11 的当前源码为事实源；尚未实现的设计方向会明确标为缺口或未来规范。
 
 架构级边界见 [前端架构](architecture.md)，开发和部署方式见 [开发与部署](development.md)。
 
@@ -23,7 +23,7 @@
 
 ### 信息优先级
 
-1. 身份与定位：Dell、数字媒体艺术、创作方向。
+1. 身份与定位：Dell、广播电视编导、创作方向。
 2. 代表作品：三项视频封面、标题与创作者信息。
 3. 能力与履历：技能、教育、工作经历、奖项。
 4. 联系与轻互动：邮箱、点赞、主题切换。
@@ -315,7 +315,7 @@ About 默认单列；1024px 起 BIO/STATS 使用 2/3 列比例，MISSION/TROPHY 
 - Like 图标：红色 outline/solid 两态 SVG。
 - 窗口顶栏圆点使用镂空像素环，中心直接透出顶栏底色，避免半透明主色重复叠加后产生色差。
 - 代码内图标：`src/components/PixelIcons.tsx` 的 crisp SVG。
-- 头像：`public/image/avatar/dinosaur.png`。
+- 首页头像：`public/image/avatar/dinosaur-music.png`；About 头像：`public/image/avatar/dinosaur.png`。
 - 作品封面：`public/image/covers/`。
 
 所有 public 资源在代码中必须经过 `BASE_URL`。本项目不维护独立的可视化色板文件；颜色方案直接维护在本文第四部分。
