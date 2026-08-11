@@ -63,5 +63,5 @@
 - 视觉 token、布局、组件状态或交互变化：更新 `docs/ui-design.md`。
 - 命令、部署和排障变化：更新 `docs/development.md` 与 README。
 - 页面完成度、提交/推送/部署状态变化：更新 `docs/project-status.md`。
-- `AGENTS.md`、`README.md` 和整个 `docs/` 目录都属于当前项目 Git，应随项目提交；不得通过 ignore、exclude、skip-worktree、hook 或第二个本地 Git 仓库隔离。
+- `AGENTS.md`、`README.md` 和正式 `docs/` 文档都属于当前项目 Git，应随项目提交；用户明确指定仅供本地使用的 `docs/指南.md` 除外，该文件保持未跟踪且不得上传。不要为其他项目文档设置 ignore、exclude、skip-worktree、hook 或第二个本地 Git 仓库隔离。
 - 只有会让下一位 AI 犯错的硬规则才进入本文；历史过程和单次修复不要追加到 AGENTS.md。
